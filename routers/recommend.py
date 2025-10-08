@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from ..db import SessionLocal
-from ..models import User
+from db import SessionLocal
+from models import User
 from sqlalchemy import text
 
 router = APIRouter(prefix="/recommend")
@@ -24,3 +24,4 @@ def recommend(user_id: int, db: Session = Depends(get_db)):
     """)
     res = db.execute(query, {"uid": user_id})
     return [dict(r) for r in res]
+
