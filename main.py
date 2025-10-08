@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from .routers import auth, resume, recommend
-from .db import Base, engine
+from routers import auth, resume, recommend
+from db import Base, engine
 
 Base.metadata.create_all(bind=engine)
 
@@ -13,3 +13,4 @@ app.include_router(recommend.router)
 @app.get("/")
 def root():
     return {"message": "Welcome to MatchMyStack Backend!"}
+
