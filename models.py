@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, ARRAY, ForeignKey, TIMESTAMP
 from sqlalchemy.orm import relationship
 from pgvector.sqlalchemy import Vector
-from .db import Base
+from db import Base
 
 class User(Base):
     __tablename__ = "users"
@@ -22,3 +22,4 @@ class Project(Base):
     description = Column(Text)
     tech_stack = Column(ARRAY(String))
     project_embedding = Column(Vector(768))
+
